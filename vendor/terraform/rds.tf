@@ -7,7 +7,7 @@ resource "aws_db_instance" "chatapp" {
   allocated_storage       = 20
   db_name                 = "chatdb"
   username                = "chatappuser"
-  password                = "cPB6DnvyixTWJxif"
+  password                = var.db_password
   publicly_accessible     = true
   skip_final_snapshot     = true
   db_subnet_group_name    = aws_db_subnet_group.chatapp.name
