@@ -27,7 +27,7 @@ resource "aws_ecs_task_definition" "backend" {
       environment = [
         { name = "SPRING_DATASOURCE_URL", value = "jdbc:postgresql://${aws_db_instance.chatapp.endpoint}/chatdb" },
         { name = "SPRING_DATASOURCE_USERNAME", value = "chatappuser" },
-        { name = "SPRING_DATASOURCE_PASSWORD", value = "cPB6DnvyixTWJxif" },
+        { name = "SPRING_DATASOURCE_PASSWORD", value = "${var.db_password}" },
         { name = "CORS_ALLOWED_ORIGINS", value = "https://${aws_lb.chatapp.dns_name}" },
         { name = "S3_BUCKET_NAME", value = "${aws_s3_bucket.chat_uploads.id}" },
         { name = "AWS_REGION", value = "us-east-1" },
